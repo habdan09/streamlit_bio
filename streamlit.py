@@ -8,11 +8,11 @@ dataset_path = r"C:\Users\habib\Desktop\corrected_csv.csv"
 st.header("Genomic Data Analysis Dashboard")
 
 
-st.title("Comprehensive Genomic Metrics Visualization")
+st.title("Genomic Metrics Visualization")
 st.subheader("Interactive Data Exploration")
 st.write("""
 Welcome to the Genomic Data Analysis Dashboard! This tool allows you to interactively 
-explore and visualize your genomic metrics.
+explore and visualize your genomic metrics. 
 """)
 
 try:
