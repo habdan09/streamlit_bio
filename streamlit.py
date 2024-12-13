@@ -3,13 +3,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Correct file path using raw string
 dataset_path = r"C:\Users\habib\Desktop\corrected_csv.csv"
 
-# App Header
 st.header("Genomic Data Analysis Dashboard")
 
-# Title and Subtitle
+
 st.title("Comprehensive Genomic Metrics Visualization")
 st.subheader("Interactive Data Exploration")
 st.write("""
@@ -17,7 +15,6 @@ Welcome to the Genomic Data Analysis Dashboard! This tool allows you to interact
 explore and visualize your genomic metrics.
 """)
 
-# Load the dataset
 try:
     data = pd.read_csv(dataset_path)
     st.write("### Preview of Uploaded Data")
@@ -29,16 +26,15 @@ except Exception as e:
     st.error(f"An error occurred while loading the dataset: {e}")
     st.stop()
 
-# Interactive Visualization Section
 st.header("Interactive Data Visualization")
 
-# Fixed axis line chart for Fragments vs Samples
+# line chart for Fragments vs Samples
 if 'ID SAMPLE' in data.columns and 'Fragments' in data.columns:
     try:
-        # Convert 'Fragments' to numeric if needed
+        
         data['Fragments'] = data['Fragments'].str.replace(',', '').astype(float)
 
-        # Generate a Plotly line chart
+        
         fig = px.line(
             data,
             x='ID SAMPLE',
@@ -48,7 +44,7 @@ if 'ID SAMPLE' in data.columns and 'Fragments' in data.columns:
             markers=True
         )
 
-        # Display the chart in Streamlit
+        
         st.plotly_chart(fig, use_container_width=True)
 
     except Exception as e:
@@ -56,7 +52,7 @@ if 'ID SAMPLE' in data.columns and 'Fragments' in data.columns:
 else:
     st.warning("Required columns 'ID SAMPLE' and 'Fragments' are not present in the dataset.")
 
-# Add more visualizations
+
 st.subheader("Explore Additional Metrics")
 
 def generate_bar_chart(column_name):
