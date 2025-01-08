@@ -7,5 +7,5 @@ while true; do
         git push
         echo "Changes pushed at $(date)"
     fi
-    sleep 60  # Check every 10 seconds
+    sleep 5  # Check every 10 seconds
 done
